@@ -1,0 +1,13 @@
+#titulo{
+    text-align: center;
+    font-size: 40px;
+}
+
+.destaque{
+    color: red;
+    font-weight: 500;
+}
+
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
