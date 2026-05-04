@@ -1,11 +1,12 @@
 // Importando biblioteca para ler arquivos
 import fs from "fs"
+import path from "path"
 
 // Importando funções do Vitest
 import { describe, test, expect } from "vitest"
 
 // Lendo o conteúdo do arquivo CSS
-const css = fs.readFileSync("../styles/footer.css", "utf8")
+const css = fs.readFileSync(path.resolve("src/styles/footer.css"), "utf8")
 
 describe("Footer.css", () => {
 
