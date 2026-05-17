@@ -1,10 +1,11 @@
 import Profile from "./components/Profile";
 import Logo from "./assets/59045.png"
 import Logo2 from "./assets/do-utilizador.png"
+import fotoPerfil from "./assets/fotoPerfil.jpg"
 
 export default function App(){
     return(
-        <div>
+        <div className="main">
             <header>
                 <div className="logos">
                     <img src={Logo} alt="Logo" style={{width: "50px"}}/>
@@ -21,11 +22,14 @@ export default function App(){
                     <p>Conheça os membros da nossa equipe</p>
                 </div>
                 <div className="content-cards">
-                <Profile nome="Mariana" idade={20} profissao="Dev" foto="https://via.placeholder.com/250" />
-                <Profile nome="Maria" idade={20} profissao="Dev" foto="https://via.placeholder.com/250" />
-                <Profile nome="Maria" idade={20} profissao="Dev" foto="https://via.placeholder.com/250" />
+                <Profile nome="Mariana" idade={20} profissao="Dev" foto={fotoPerfil} />
+                <Profile nome="Maria" idade={20} profissao="Dev" foto={fotoPerfil} />
+                <Profile nome="Maria" idade={20} profissao="Dev" foto={fotoPerfil} />
                 </div>
             </div>
+            <footer>
+                <p>&copy; 2026 TechVision &bull; Todos os diretos</p>
+            </footer>
         </div>
     )
 }
