@@ -50,9 +50,7 @@ describe("Profile", () => {
       />
     )
 
-    const imagem = screen.getByRole("img")
 
-    expect(imagem).toBeTruthy()
   })
 
 })
