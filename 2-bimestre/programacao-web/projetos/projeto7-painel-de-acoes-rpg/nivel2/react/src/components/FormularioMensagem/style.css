@@ -1,0 +1,55 @@
+.formulario{
+    display: flex;
+    justify-content: center;  
+    align-items: center;             
+    font-family: sans-serif;
+    flex-direction: column;
+    background-color: white;
+    margin: 10px 550px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(178, 178, 178);
+}
+
+.Inputs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.Inputs > input {
+    padding: 5px 200px;
+}
+
+.Inputs > textarea {
+    width: 520px;
+    height: 127px;
+}
+
+#butaoElement{
+    padding: 10px 70px;
+    border: none;
+    background-color: blueviolet;
+    border-radius: 7px;
+    margin: 0 10px;
+    color: white;
+    font-size: 23px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+label{
+    margin: 0px 30px;
+}
+
+#imgEnviar{
+    width: 30px;
+    height: 30px;
+    margin: 0 15px;
+}

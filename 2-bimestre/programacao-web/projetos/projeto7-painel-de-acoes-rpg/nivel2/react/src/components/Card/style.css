@@ -1,0 +1,46 @@
+.tudo-perfil{
+    display: flex;
+    justify-content: center;  
+    align-items: center;             
+    font-family: sans-serif;
+    background-color: white;
+    margin: 10px 550px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(178, 178, 178);
+}
+
+.perfil{
+    display: flex;
+    margin: 5px 20px;
+    flex-direction: column;
+    max-width: 650px
+}
+
+.infos{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 20px;
+    align-self: flex-start;
+}
+
+.atributos{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.butao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infos > img{
+    width: 200px;
+    height: 200px;
+}

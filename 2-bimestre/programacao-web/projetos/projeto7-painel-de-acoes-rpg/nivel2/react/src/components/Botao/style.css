@@ -1,0 +1,22 @@
+button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 70px;
+    border: none;
+    border-radius: 7px;
+    margin: 0 10px;
+    color: white;
+    font-size: 23px;
+    background-color: none;
+    cursor: pointer;
+}
+
+button > img{
+    width: 20px;
+    height: 20px;
+}
+
+img{
+    margin: 0 5px;
+}
