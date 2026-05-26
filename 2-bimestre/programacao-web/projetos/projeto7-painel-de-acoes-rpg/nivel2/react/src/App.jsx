@@ -9,6 +9,7 @@ export default function App(){
       <header>
         <img src={espadasCruzadas} />
         <h1>Legends arena</h1>
+        
       </header>
       <Card classe={"Tank"} nivel={25} vida={"850/1000"} experiencia={"1250/2000"} foto={fotoDePerfil}>Guerreiro</Card>
       <FormularioMensagem />
