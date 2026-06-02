@@ -113,3 +113,7 @@ Responda:
 3. O que precisa desenvolver?
 
 Crie sua resposta abaixo:
+
+1 - Desenvolvedor Back-end
+2 - Logica bem desenvolvidade, conhecimentos previo na area
+3 - aprofundar na area, e ter mais experiencias

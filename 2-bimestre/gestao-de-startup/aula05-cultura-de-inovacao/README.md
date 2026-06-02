@@ -26,3 +26,7 @@ Responda:
 3. Como essa ideia poderia ser testada rapidamente?
 
 Crie sua resposta abaixo:
+
+1 - Alunos não fazem atividades por não ter recursos
+2 - Criar uma caixinha de Empretismo, para aluno podem pegar emprestado para usar
+3 - Colocar em sala, e analisar possiveis problemas

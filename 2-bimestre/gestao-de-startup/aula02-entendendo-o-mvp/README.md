@@ -89,3 +89,5 @@ Problema:
 > 
 
 Como você criaria um MVP para resolver esse problema? Escreva abaixo.
+
+pequeno kanban para exibir na sala, onde fica listado as tarefas pendentes.

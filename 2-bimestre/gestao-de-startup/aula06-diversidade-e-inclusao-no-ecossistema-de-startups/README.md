@@ -24,3 +24,7 @@ Responda:
 3. Por que diferentes opiniões podem melhorar uma solução?
 
 Crie sua resposta abaixo:
+
+1 - Entender como cada um pode ajudar e dividir tarefas com base nissi
+2 - A falta de comunicação
+3 - Analisar cada um delas e usa-las para melhorar tal produto

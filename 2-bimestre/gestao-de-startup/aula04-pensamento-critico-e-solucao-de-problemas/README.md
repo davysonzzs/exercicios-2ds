@@ -101,3 +101,8 @@ Perguntas:
 4. Como evitar novamente?
 
 Crie sua resposta abaixo:
+
+1 - Organização
+2 - A falta de comunicação e Organização
+3 - Reunião com todos, para Organizar
+4 - Sempre se comunicar para organização previa
