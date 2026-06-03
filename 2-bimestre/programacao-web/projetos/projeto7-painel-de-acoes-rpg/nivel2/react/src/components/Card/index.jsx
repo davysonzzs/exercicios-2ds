@@ -17,6 +17,7 @@ export default function Card({ classe, nivel, vida, experiencia, foto, children 
 
     return(
         <div className="tudo-perfil">
+            
             <div className="perfil">
                 <div className="infos">
                         <img src={foto} />
