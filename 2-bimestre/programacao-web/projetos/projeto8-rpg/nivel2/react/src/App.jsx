@@ -8,9 +8,9 @@ export default function App() {
     return(
         <div className="gerenciador-de-rpg">
             <h1>Gerenciador De Personagens Rpg</h1>
-            <FormularioPersonagem enviarPersonagem={setPersonagens} />
-            <PainelStatus Personagens={personagens} />
-            <ListaPersonagens Personagens={personagens} />
+            <FormularioPersonagem adicionarPersonagem={setPersonagens} />
+            <PainelStatus total={personagens?.length || 0} />
+            <ListaPersonagens personagens={personagens} />
         </div>
     )
 }

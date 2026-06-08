@@ -1,7 +1,9 @@
-export default function PainelStatus({ Personagens }) {
+import "./style.css"
+
+export default function PainelStatus({ total }) {
     return(
         <>
-        <p>Total de Personagens: {Personagens.lenght}</p>
+        <p id="p">Total de Personagens: {total}</p>
         </>
     )
 }

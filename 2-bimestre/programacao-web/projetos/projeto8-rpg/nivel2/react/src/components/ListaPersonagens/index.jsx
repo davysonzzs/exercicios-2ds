@@ -1,5 +1,6 @@
-export default function ListaPersonagens({ Personagens }) {
-    if(Personagens.length <= 0){
+import "./style.css"
+export default function ListaPersonagens({ personagens }) {
+    if(!personagens || personagens.length <= 0){
         return(
             <>
             <p>Nenhum Personagem cadastrado</p>
@@ -9,7 +10,7 @@ export default function ListaPersonagens({ Personagens }) {
         return(
             <div className="Visor">
                 <ul>
-                {Personagens.map((personagem) => (
+                {personagens.map((personagem) => (
                     <li>{personagem.nome} - {personagem.classe}</li>
                 ))}
                 </ul>
