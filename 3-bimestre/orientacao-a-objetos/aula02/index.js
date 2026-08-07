@@ -8,4 +8,5 @@ class Funcionarios{
 
 const funcionarioDavyson = new Funcionarios("João", "Desenvolvedor", 5000)
 
+
 module.exports = funcionarioDavyson
