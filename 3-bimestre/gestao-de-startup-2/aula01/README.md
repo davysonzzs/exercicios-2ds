@@ -149,5 +149,8 @@ Leia a situação abaixo:
 Responda:
 
 1. Qual foi o problema identificado?
+   - alunos esquecendo prazo/trabalhos a serem entregues
 2. Em que momento ocorreu o planejamento?
+   - Após identificar o problema
 3. Por que os testes foram importantes antes do lançamento?
+   - Para terem feedback e melhora o aplicativos antes do lançamento
