@@ -128,6 +128,10 @@ _
 Classifique cada situação como **Produto** ou **Projeto**.
 
 1. Desenvolvimento de uma nova funcionalidade para um aplicativo.
+- Projeto, por que é uma atividade específica realizada para entregar um resultado.
 2. Plataforma de cursos utilizada por milhares de alunos.
+- Produto, pois continua sendo utilizada para gera valor para os usuários.
 3. Construção de um sistema para uma empresa.
+- Projeto, pois possui planejamento grande, execução e termino para entregar o sistema.
 4. Aplicativo de delivery utilizado diariamente pelos clientes.
+- Produto, pois continua existindo e recebendo melhorias.

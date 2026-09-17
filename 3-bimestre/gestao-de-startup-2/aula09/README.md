@@ -219,5 +219,9 @@ Ela possui um protótipo simples desenhado em papel.
 Crie:
 
 1. Uma tarefa que será dada ao usuário.
+- “Encontre uma tarefa de Matemática no protótipo e mostre como faria para adicionar uma nova tarefa”
 2. Duas coisas que a equipe deverá observar.
+- Se o usuário consegue encontrar facilmente onde adicionar uma taref
+- Se o usuário fica perdido ou tem dificuldade para realizar a tarefa
 3. Uma pergunta para fazer depois do teste.
+- “O que ficou mais difícil ou confuso durante o teste?”
