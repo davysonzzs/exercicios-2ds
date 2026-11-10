@@ -1,0 +1,15 @@
+meta {
+  name: Filtrar pedidos
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3000/pedidos?valorMin=200
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}

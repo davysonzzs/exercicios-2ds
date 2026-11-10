@@ -1,0 +1,21 @@
+meta {
+  name: Criar sem cliente
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:3000/pedidos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "valor": 300
+  }
+}
+
+assert {
+  res.status: eq 400
+}
