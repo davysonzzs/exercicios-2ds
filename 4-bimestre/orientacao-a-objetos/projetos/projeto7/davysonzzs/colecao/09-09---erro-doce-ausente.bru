@@ -1,0 +1,18 @@
+meta {
+  name: 09 - Erro: doce ausente
+  type: http
+  seq: 9
+}
+
+post {
+  url: http://localhost:3000/encomendas
+  body: json
+  auth: none
+}
+
+body:json {
+
+  "cliente": "Diego",
+  "quantidade": 50
+
+}

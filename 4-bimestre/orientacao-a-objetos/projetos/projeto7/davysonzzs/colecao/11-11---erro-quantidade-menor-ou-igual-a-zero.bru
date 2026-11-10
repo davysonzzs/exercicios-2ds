@@ -1,0 +1,19 @@
+meta {
+  name: 11 - Erro: quantidade menor ou igual a zero
+  type: http
+  seq: 11
+}
+
+post {
+  url: http://localhost:3000/encomendas
+  body: json
+  auth: none
+}
+
+body:json {
+
+  "cliente": "Diego",
+  "doce": "Brigadeiro",
+  "quantidade": 0
+
+}

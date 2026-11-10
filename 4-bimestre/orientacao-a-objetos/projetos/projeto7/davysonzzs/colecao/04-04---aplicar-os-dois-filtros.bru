@@ -1,0 +1,11 @@
+meta {
+  name: 04 - Aplicar os dois filtros
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:3000/encomendas?status=produzindo&quantidadeMin=10
+  body: none
+  auth: none
+}

@@ -1,0 +1,19 @@
+meta {
+  name: 10 - Erro: quantidade nao numerica
+  type: http
+  seq: 10
+}
+
+post {
+  url: http://localhost:3000/encomendas
+  body: json
+  auth: none
+}
+
+body:json {
+
+  "cliente": "Diego",
+  "doce": "Brigadeiro",
+  "quantidade": "muitas"
+
+}

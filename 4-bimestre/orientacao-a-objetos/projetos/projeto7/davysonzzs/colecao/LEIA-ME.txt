@@ -1,0 +1,9 @@
+Colecao Bruno - API de Encomendas da Doceria
+
+1. Extraia a pasta 'colecao' para dentro da pasta do projeto.
+2. No Bruno, abra a colecao usando essa pasta como Collection Location.
+3. Inicie sua API com: node --watch servidor.js
+4. Execute as requisicoes individualmente ou use Run Collection.
+
+A colecao contem 13 requisicoes: listagem, filtros, busca por ID, criacao valida, quatro cenarios de validacao, rota inexistente e resumo.
+A requisicao de criacao valida altera o array em memoria enquanto o servidor estiver rodando.
