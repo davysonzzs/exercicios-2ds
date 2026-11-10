@@ -1,0 +1,202 @@
+{
+  "info": {
+    "_postman_id": "8f41f2e7-1d2a-4a4c-9a3f-7c2d6b8a1007",
+    "name": "API de Encomendas da Doceria",
+    "description": "Colecao com 13 requisicoes para testar os requisitos RF01 a RF05 da API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 - Listar todas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/encomendas"
+      },
+      "response": []
+    },
+    {
+      "name": "02 - Filtrar por status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/encomendas?status=produzindo"
+      },
+      "response": []
+    },
+    {
+      "name": "03 - Filtrar por quantidade minima",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/encomendas?quantidadeMin=10"
+      },
+      "response": []
+    },
+    {
+      "name": "04 - Aplicar os dois filtros",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/encomendas?status=produzindo&quantidadeMin=10"
+      },
+      "response": []
+    },
+    {
+      "name": "05 - Buscar encomenda por ID existente",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/encomendas/2"
+      },
+      "response": []
+    },
+    {
+      "name": "06 - Buscar encomenda por ID inexistente",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/encomendas/99"
+      },
+      "response": []
+    },
+    {
+      "name": "07 - Criar encomenda valida",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": "http://localhost:3000/encomendas",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cliente\": \"Diego\",\n  \"doce\": \"Brigadeiro\",\n  \"quantidade\": 50\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "08 - Erro: cliente ausente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": "http://localhost:3000/encomendas",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"doce\": \"Brigadeiro\",\n  \"quantidade\": 50\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "09 - Erro: doce ausente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": "http://localhost:3000/encomendas",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cliente\": \"Diego\",\n  \"quantidade\": 50\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10 - Erro: quantidade nao numerica",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": "http://localhost:3000/encomendas",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cliente\": \"Diego\",\n  \"doce\": \"Brigadeiro\",\n  \"quantidade\": \"muitas\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "11 - Erro: quantidade menor ou igual a zero",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": "http://localhost:3000/encomendas",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cliente\": \"Diego\",\n  \"doce\": \"Brigadeiro\",\n  \"quantidade\": 0\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "12 - Rota inexistente",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/qualquer-coisa"
+      },
+      "response": []
+    },
+    {
+      "name": "13 - Resumo das encomendas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:3000/encomendas/resumo"
+      },
+      "response": []
+    }
+  ]
+}
