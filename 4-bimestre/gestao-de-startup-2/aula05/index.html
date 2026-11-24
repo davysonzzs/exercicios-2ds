@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Priorizador de backlog</title>
+<style>
+  :root { color-scheme: light dark; --bg:#f7f7f5; --fg:#1c1c1a; --muted:#6b6b66; --line:#d9d9d3; --card:#fff; --accent:#0f6b5c; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#151515; --fg:#ececea; --muted:#9a9a94; --line:#333; --card:#1e1e1e; --accent:#4fc3ad; } }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:24px 16px; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, sans-serif; }
+  main { max-width:900px; margin:0 auto; }
+  h1 { font-size:1.5rem; margin:0 0 4px; }
+  p.sub { color:var(--muted); margin:0 0 20px; }
+  form { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; background:var(--card); border:1px solid var(--line); padding:16px; border-radius:8px; }
+  label { display:flex; flex-direction:column; font-size:.85rem; color:var(--muted); gap:4px; }
+  input, select { font:inherit; padding:8px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); }
+  input:focus-visible, select:focus-visible, button:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+  button { font:inherit; cursor:pointer; border:0; border-radius:6px; padding:8px 14px; background:var(--accent); color:#fff; }
+  form button { align-self:end; }
+  button.del { background:transparent; color:var(--muted); padding:2px 8px; border:1px solid var(--line); }
+  .tabela { overflow-x:auto; margin-top:20px; }
+  table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); }
+  th, td { padding:10px; text-align:left; border-bottom:1px solid var(--line); white-space:nowrap; }
+  td.titulo { white-space:normal; }
+  td.num, th.num { text-align:right; }
+  tr:first-child td.rice { color:var(--accent); font-weight:700; }
+  .wont { opacity:.6; }
+  #msg { color:var(--muted); font-size:.9rem; margin-top:12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Priorizador de backlog</h1>
+  <p class="sub">RICE = (alcance × impacto) ÷ esforço. A tabela fica sempre ordenada do maior para o menor.</p>
+
+  <form id="form">
+    <label>Título <input id="titulo" required maxlength="80"></label>
+    <label>MoSCoW
+      <select id="moscow">
+        <option>Must</option><option>Should</option><option>Could</option><option>Won't</option>
+      </select>
+    </label>
+    <label>Alcance (pessoas) <input id="alcance" type="number" min="0" step="1" required></label>
+    <label>Impacto (1 a 3)
+      <select id="impacto"><option>1</option><option>2</option><option selected>3</option></select>
+    </label>
+    <label>Esforço (horas) <input id="esforco" type="number" min="0.5" step="0.5" required></label>
+    <button type="submit">Adicionar item</button>
+  </form>
+
+  <div class="tabela">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Título</th><th>MoSCoW</th><th class="num">Alcance</th><th class="num">Impacto</th><th class="num">Esforço</th><th class="num">RICE</th><th></th></tr>
+      </thead>
+      <tbody id="corpo"></tbody>
+    </table>
+  </div>
+  <p id="msg"></p>
+</main>
+
+<script>
+const CHAVE = 'backlog-rice';
+
+// Itens iniciais de exemplo (troque pelos números reais do NPS e do funil)
+const EXEMPLO = [
+  { id: 1, titulo: 'Corrigir erro 500 ao cadastrar pedido sem nome', moscow: 'Must', alcance: 200, impacto: 3, esforco: 2 },
+  { id: 2, titulo: 'Criar tela de listagem de pedidos', moscow: 'Must', alcance: 150, impacto: 3, esforco: 6 },
+  { id: 3, titulo: 'Adicionar busca por nome', moscow: 'Should', alcance: 80, impacto: 2, esforco: 5 },
+  { id: 4, titulo: 'Trocar as cores do sistema', moscow: 'Could', alcance: 200, impacto: 1, esforco: 4 },
+  { id: 5, titulo: 'Exportar relatório em PDF', moscow: "Won't", alcance: 15, impacto: 2, esforco: 8 }
+];
+
+function carregar() {
+  try {
+    const bruto = localStorage.getItem(CHAVE);
+    if (bruto) return JSON.parse(bruto);
+  } catch (e) { /* storage indisponível */ }
+  return EXEMPLO.slice();
+}
+
+function salvar() {
+  try { localStorage.setItem(CHAVE, JSON.stringify(itens)); } catch (e) { /* ignora */ }
+}
+
+let itens = carregar();
+
+const rice = i => (i.alcance * i.impacto) / i.esforco;
+const fmt = n => n.toLocaleString('pt-BR', { maximumFractionDigits: 2 });
+
+function render() {
+  const corpo = document.getElementById('corpo');
+  corpo.textContent = '';
+  [...itens].sort((a, b) => rice(b) - rice(a)).forEach((i, pos) => {
+    const tr = document.createElement('tr');
+    if (i.moscow === "Won't") tr.className = 'wont';
+    const celulas = [
+      [pos + 1, ''], [i.titulo, 'titulo'], [i.moscow, ''],
+      [fmt(i.alcance), 'num'], [i.impacto, 'num'], [fmt(i.esforco) + ' h', 'num'],
+      [fmt(rice(i)), 'num rice']
+    ];
+    celulas.forEach(([texto, cls]) => {
+      const td = document.createElement('td');
+      td.textContent = texto;
+      td.className = cls;
+      tr.appendChild(td);
+    });
+    const tdDel = document.createElement('td');
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'del';
+    btn.textContent = 'Remover';
+    btn.setAttribute('aria-label', 'Remover ' + i.titulo);
+    btn.onclick = () => { itens = itens.filter(x => x.id !== i.id); salvar(); render(); };
+    tdDel.appendChild(btn);
+    tr.appendChild(tdDel);
+    corpo.appendChild(tr);
+  });
+  document.getElementById('msg').textContent =
+    itens.length ? '' : 'Nenhum item ainda. Cadastre o primeiro acima.';
+}
+
+document.getElementById('form').addEventListener('submit', e => {
+  e.preventDefault();
+  itens.push({
+    id: Date.now(),
+    titulo: document.getElementById('titulo').value.trim(),
+    moscow: document.getElementById('moscow').value,
+    alcance: Number(document.getElementById('alcance').value),
+    impacto: Number(document.getElementById('impacto').value),
+    esforco: Number(document.getElementById('esforco').value)
+  });
+  salvar();
+  e.target.reset();
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

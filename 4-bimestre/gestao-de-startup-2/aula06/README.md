@@ -263,4 +263,13 @@ Confira: tente enviar só `"gente, não tá funcionando aqui, me ajuda"`. O sist
 **3. Responda**
 
 - O colega precisou perguntar algo? Se sim, o que faltava no pedido?
+
+Sim, ele perguntou qual era a mensagem de erro exata. Faltou eu copiar o erro literalmente no campo 'o que está acontecendo'. Eu tinha descrito o problema com minhas palavras, e a aula diz que o erro deve aparecer exatamente como surge
+
 - Qual foi o feedback recebido e **uma coisa** que você vai mudar no próximo pedido?
+
+SITUAÇÃO:      No pedido de ajuda que você enviou no chat da turma,
+COMPORTAMENTO: você listou o que já tinha tentado, mas não colou o erro exato,
+IMPACTO:       e eu levei mais tempo para entender qual era o problema.
+
+No próximo pedido, vou copiar a mensagem de erro exatamente como aparece e colar no campo 'o que está acontecendo', em vez de resumir com minhas palavras.
